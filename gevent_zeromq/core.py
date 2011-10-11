@@ -45,13 +45,12 @@ class _Socket(_original_Socket):
     marked as readable and triggers the necessary read and write events (which
     are waited for in the recv and send methods).
 
-    Some doubleunderscore prefixes are used to minimize pollution of
+    Some double underscore prefixes are used to minimize pollution of
     :class:`zmq.core.socket.Socket`'s namespace.
     """
 
     def __init__(self, context, socket_type):
         self._state_event = None
-        super(_Socket, self).__init__(context, socket_type)
         self.__setup_events()
 
     def __del__(self):
